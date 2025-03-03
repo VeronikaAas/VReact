@@ -1,7 +1,7 @@
 import { Disclosure, DisclosureButton } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon, ShoppingCartIcon } from '@heroicons/react/24/outline';
+import { MenuIcon, XIcon, ShoppingCartIcon } from '@heroicons/react/outline';
 import { Link } from 'react-router-dom';
-import { useCart } from '../cart/Cartcontext'; // ✅ Import handlekurv-konteksten
+import { useCart } from '../cart/Cartcontext';
 
 const navigation = [
   { name: 'Home', href: '/', current: true },
@@ -14,7 +14,7 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
-  const { cart } = useCart(); // ✅ Hent handlekurven
+  const { cart } = useCart(); 
 
   return (
     <Disclosure as="nav" className="bg-sky-300">
@@ -28,9 +28,9 @@ export default function Navbar() {
                 <DisclosureButton className="p-2 text-black hover:bg-sky-600 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
-                    <XMarkIcon className="block size-6" aria-hidden="true" />
+                    <XIcon className="block size-6" aria-hidden="true" />
                   ) : (
-                    <Bars3Icon className="block size-6" aria-hidden="true" />
+                    <MenuIcon className="block size-6" aria-hidden="true" />
                   )}
                 </DisclosureButton>
               </div>
