@@ -1,17 +1,25 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import React from 'react'
+import Navbar from './components/header/Navbar';
+import Home from './views/1.home/Home';
+import Single from './views/2.singleproduct/Single';
+import Checkout from './views/3.checkout/Checkout';
+import Success from './views/4.checkoutsuccess/Success';
+import Contact from './views/5.contact/Contact';
 
 const App = () => {
   return (
     <div>
-      <div className ="container bg-red-500 mx-auto">
-        <h1 className="text-8xl text-sky-500">Hello Tailwind and React!</h1>
-        <div>
-          <h2 className="text-3xl">This is 2xl</h2>
-        </div>
-        <div>
-          <button className="bg-amber-500 px-5 py-2 rounded-2xl hover:bg-amber-800">Click me!</button>
-        </div>
-      </div>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/single" element={<Single />} />
+          <Route path="/success" element={<Success />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </Router>
     </div>
   )
 }
