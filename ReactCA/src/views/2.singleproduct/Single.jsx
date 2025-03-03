@@ -23,7 +23,7 @@ const Single = () => {
     }, [id]);
 
     if (!product) return <p className="text-center text-gray-500">Loading product...</p>;
-    if (!product.data) return <p className="text-center text-red-500">❌ Product not found.</p>;
+    if (!product.data) return <p className="text-center text-red-500">Product not found.</p>;
 
     return (
         <div className="max-w-5xl mx-auto p-6 bg-white shadow-md rounded-md mt-10">
