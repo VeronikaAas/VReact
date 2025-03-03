@@ -1,55 +1,66 @@
 import { useCart } from "../../components/cart/Cartcontext";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const CheckoutPage = () => {
-    const { cart, setCart } = useCart();
+    const { cart, setCart, removeFromCart } = useCart();
     const navigate = useNavigate();
 
-    // Beregn totalpris med rabatt der det er aktuelt
     const totalPrice = parseFloat(
         cart.reduce((sum, item) => sum + Number(item.discountedPrice && item.discountedPrice < item.price ? item.discountedPrice : item.price), 0)
     ).toFixed(2);
-
-    // Håndter fullføring av kjøp
+    
     const handleCheckout = () => {
-        setCart([]); // 🚀 Tømmer handlekurven
-        navigate("/success"); // 🚀 Sender til suksess-siden
+        setCart([]); 
+        navigate("/success"); 
     };
 
     return (
-        <div className="p-6 max-w-lg mx-auto bg-white shadow-md rounded-md text-black">
-            <h1 className="text-2xl font-semibold mb-4">Payment</h1>
+        <div className="max-w-3xl mx-auto p-6 bg-sky-300 border border-sky-500 shadow-lg rounded-lg mt-10">
+            <Helmet>
+                <title>Checkout</title>
+            </Helmet>
+            <div className="bg-white p-6 rounded-md shadow-md text-black">
+                <h1 className="text-2xl font-semibold mb-4 text-center">Payment</h1>
 
-            {cart.length === 0 ? (
-                <p>Handlekurven din er tom.</p>
-            ) : (
-                <div>
-                    <ul>
-                        {cart.map((item) => (
-                            <li key={item.id} className="border p-4 mb-4">
-                                <strong>{item.title}:</strong> <br></br> 
-                                {item.discountedPrice && item.discountedPrice < item.price ? (
-                                    <span>
-                                        <span className="text-gray-500 line-through mr-2">{item.price} kr</span>
-                                        <span className="text-red-600 font-bold">{item.discountedPrice} kr</span>
-                                    </span>
-                                ) : (
-                                    <span>{item.price} kr</span>
-                                )}
-                            </li>
-                        ))}
-                    </ul>
+                {cart.length === 0 ? (
+                    <p className="text-center text-gray-600">Your cart is empty.</p>
+                ) : (
+                    <div>
+                        <ul>
+                            {cart.map((item) => (
+                                <li key={item.id} className="border p-4 mb-4 flex justify-between items-center bg-gray-50 rounded-lg shadow-sm">
+                                    <div>
+                                        <strong>{item.title}</strong> <br />
+                                        {item.discountedPrice && item.discountedPrice < item.price ? (
+                                            <span>
+                                                <span className="text-gray-500 line-through mr-2">{item.price} kr</span>
+                                                <span className="text-red-600 font-bold">{item.discountedPrice} kr</span>
+                                            </span>
+                                        ) : (
+                                            <span>{item.price} kr</span>
+                                        )}
+                                    </div>
+                                    <button
+                                        onClick={() => removeFromCart(item.id)}
+                                        className="bg-amber-500 text-white px-2 py-1 rounded hover:bg-amber-700">
+                                        Remove
+                                    </button>
+                                </li>
+                            ))}
+                        </ul>
 
-                    <p className="font-bold mt-4">Totalpris: {totalPrice} kr</p>
+                        <p className="font-bold mt-4 text-center text-lg">Total: {totalPrice} kr</p>
 
-                    <button
-                        onClick={handleCheckout}
-                        className="bg-yellow-600 text-black px-4 py-2 rounded mt-4 hover:bg-yellow-800"
-                        style={{ backgroundColor: "#ca8a04" }} >Ready to pay
-                    </button>
-
-                </div>
-            )}
+                        <button
+                            onClick={handleCheckout}
+                            className="bg-yellow-500 text-white px-4 py-2 rounded mt-4 hover:bg-yellow-700 w-full"
+                            style={{ backgroundColor: "#ca8a04" }}>
+                            Ready to pay
+                        </button>
+                    </div>
+                )}
+            </div>
         </div>
     );
 };

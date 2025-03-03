@@ -1,16 +1,24 @@
 import { Link } from "react-router-dom";
+import { CheckCircleIcon } from "@heroicons/react/outline";
+import { Helmet } from "react-helmet-async";
 
 export default function CheckoutSuccessPage() {
     return (
-        <div className="p-6 max-w-lg mx-auto bg-white text-black shadow-md rounded-md text-center">
-            <h1 className="text-2xl font-semibold">Order complete!</h1>
-            <p className="mt-4">Thank you for your order! We will ship it out shortly.</p>
+        <div className="max-w-3xl mx-auto p-6 bg-sky-300 border border-sky-500 shadow-lg rounded-lg mt-10">
+            <Helmet>
+                <title>Checkout Success</title>
+            </Helmet>
+            <div className="bg-white p-6 rounded-md shadow-md text-black text-center">
+                <h1 className="text-2xl font-semibold text-green-600 flex justify-center"> 
+                    <CheckCircleIcon className="h-8 w-8 text-green-800 mr-1" />Order Complete!</h1>
+                <p className="mt-4 text-gray-700">Thank you for your order! We will ship it out shortly.</p>
 
-            <Link to="/">
-                <button className="mt-6 bg-yellow-500 text-black px-4 py-2 rounded hover:bg-yellow-600">
-                    Back to the store
-                </button>
-            </Link>
+                <Link to="/">
+                    <button className="mt-6 bg-yellow-500 text-white px-6 py-2 rounded hover:bg-yellow-600">
+                        Back to the store
+                    </button>
+                </Link>
+            </div>
         </div>
     );
 }
