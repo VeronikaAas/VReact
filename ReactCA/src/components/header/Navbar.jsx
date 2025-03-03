@@ -1,6 +1,7 @@
 import { Disclosure, DisclosureButton } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon, ShoppingCartIcon } from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom';
+import { useCart } from '../cart/Cartcontext'; // ✅ Import handlekurv-konteksten
 
 const navigation = [
   { name: 'Home', href: '/', current: true },
@@ -13,6 +14,8 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
+  const { cart } = useCart(); // ✅ Hent handlekurven
+
   return (
     <Disclosure as="nav" className="bg-sky-300">
       {({ open }) => (
@@ -37,16 +40,16 @@ export default function Navbar() {
                 <div className="hidden sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
-                        href={item.href}
+                        to={item.href}
                         className={classNames(
                           item.current ? 'bg-sky-900 text-white' : 'text-black hover:bg-sky-600 hover:text-white',
                           'rounded-md px-3 py-2 text-sm font-medium'
                         )}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -55,18 +58,26 @@ export default function Navbar() {
               {/* Logo in the center */}
               <div className="absolute left-1/2 transform -translate-x-1/2">
                 <Link to="/">
-                    <img
+                  <img
                     src="/logo_shop.gif"  
                     alt="Logo"
-                    className="h-16 w-auto"/>
+                    className="h-16 w-auto"
+                  />
                 </Link>
               </div>
 
-              {/* Shopping Cart Icon */}
+              {/* Shopping Cart Icon with Counter */}
               <div className="absolute inset-y-0 right-0 flex items-center pr-2">
-                <Link to="/checkout" className="rounded-full text-black hover:bg-sky-600 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                <Link to="/checkout" className="relative rounded-full text-black hover:bg-sky-600 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                   <span className="sr-only">Go to Checkout</span>
                   <ShoppingCartIcon className="size-8" aria-hidden="true" />
+
+                  {/* 🛒 Badge for number of items in cart */}
+                  {cart.length > 0 && (
+                    <span className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                      {cart.length}
+                    </span>
+                  )}
                 </Link>
               </div>
             </div>
