@@ -9,13 +9,11 @@ const Single = () => {
     const [product, setProduct] = useState(null);
 
     useEffect(() => {
-        console.log("Fetching product with ID:", id);
 
         if (id) {
             fetch(`https://v2.api.noroff.dev/online-shop/${id}`)
                 .then((res) => res.json())
                 .then((data) => {
-                    console.log("Product data received:", data);
                     setProduct(data);
                 })
                 .catch((error) => console.error("Error fetching product:", error));

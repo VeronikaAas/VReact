@@ -48,7 +48,6 @@ export default function ContactPage() {
         e.preventDefault();
         
         if (validateForm()) {
-            console.log("Form submitted:", formData);
             setSubmitted(true);
         }
     };
