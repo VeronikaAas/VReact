@@ -16,17 +16,14 @@ export const CartProvider = ({ children }) => {
         localStorage.setItem("cart", JSON.stringify(cart));
     }, [cart]);
 
-    // Legg til i handlekurv
     const addToCart = (product) => {
         setCart((prevCart) => [...prevCart, product]);
     };
 
-    // Fjern fra handlekurv
     const removeFromCart = (productId) => {
         setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
     };
 
-    // 🚀 Tøm handlekurven
     const clearCart = () => {
         setCart([]);
     };
