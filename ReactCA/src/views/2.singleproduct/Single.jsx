@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { useCart } from "../../components/cart/Cartcontext";
 import { StarIcon, TagIcon } from "@heroicons/react/solid";
 
 const Single = () => {
     const { id } = useParams();
-    const { addToCart } = useCart();
     const [product, setProduct] = useState(null);
 
     useEffect(() => {
@@ -24,7 +22,7 @@ const Single = () => {
     if (!product.data) return <p className="text-center text-red-500">Product not found.</p>;
 
     return (
-        <div className="p-6 text-black min-h-screen flex flex-col items-center">
+        <div className="max-w-3xl mx-auto p-6 bg-sky-300 border border-sky-500 shadow-lg rounded-lg mt-10">
             <Helmet>
                 <title>{product.data.title}</title>
             </Helmet>
@@ -63,13 +61,6 @@ const Single = () => {
                                 <p className="text-gray-900 text-2xl font-bold">{product.data.price} kr</p>
                             )}
                         </div>
-                        {/* Kjøpsknapp */}
-                        <button
-                            className="mt-6 bg-black text-white py-2 px-4 rounded-md hover:bg-gray-800 transition"
-                            onClick={() => addToCart(product.data)}
-                        >
-                            Legg i handlekurv
-                        </button>
                     </div>
                 </div>
             </div>
