@@ -65,7 +65,7 @@ export default function ContactPage() {
                         <p className="mt-4 text-gray-700">It's always good to get things off your chest! We will get back to you shortly.</p>
         
                         <Link to="/">
-                            <button className="mt-6 bg-yellow-500 text-white px-6 py-2 rounded hover:bg-yellow-600">
+                            <button className="mt-6 bg-yellow-500 text-white px-6 py-2 rounded hover:bg-yellow-600 cursor-pointer">
                                 Back to the store
                             </button>
                         </Link>
@@ -129,7 +129,7 @@ export default function ContactPage() {
                         {/* Submit Button */}
                         <button
                             type="submit"
-                            className="w-full bg-yellow-500 text-white py-2 rounded hover:bg-yellow-600 disabled:bg-gray-400"
+                            className="w-full bg-yellow-500 text-white py-2 rounded hover:bg-yellow-600 disabled:bg-gray-400 cursor-pointer"
                             disabled={Object.keys(errors).length > 0}>
                             Submit
                         </button>

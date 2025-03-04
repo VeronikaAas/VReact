@@ -14,7 +14,7 @@ export default function CheckoutSuccessPage() {
                 <p className="mt-4 text-gray-700">Thank you for your order! We will ship it out shortly.</p>
 
                 <Link to="/">
-                    <button className="mt-6 bg-yellow-500 text-white px-6 py-2 rounded hover:bg-yellow-600">
+                    <button className="mt-6 bg-yellow-500 text-white px-6 py-2 rounded hover:bg-yellow-600 cursor-pointer">
                         Back to the store
                     </button>
                 </Link>

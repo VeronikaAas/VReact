@@ -43,7 +43,7 @@ const CheckoutPage = () => {
                                     </div>
                                     <button
                                         onClick={() => removeFromCart(item.id)}
-                                        className="bg-amber-500 text-white px-2 py-1 rounded hover:bg-amber-700">
+                                        className="bg-amber-500 text-white px-2 py-1 rounded hover:bg-amber-700 cursor-pointer">
                                         Remove
                                     </button>
                                 </li>
@@ -54,7 +54,7 @@ const CheckoutPage = () => {
 
                         <button
                             onClick={handleCheckout}
-                            className="bg-yellow-500 text-white px-4 py-2 rounded mt-4 hover:bg-yellow-700 w-full"
+                            className="bg-yellow-500 text-white px-4 py-2 rounded mt-4 hover:bg-yellow-700 w-full cursor-pointer"
                             style={{ backgroundColor: "#ca8a04" }}>
                             Ready to pay
                         </button>
