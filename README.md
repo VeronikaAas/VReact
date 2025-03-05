@@ -22,6 +22,6 @@ Feel free to clone and rename this project for your own purposes.
 
 1) Clone this repository
 2) Open it in VS Code
-3) Install the following dependencies: Vite, React, React Router, Helmet, Tailwind, HeroIcons from TailwindUI, and Netlify CLI
+3) Install the following dependencies: Vite, React, React Router, Helmet, Tailwind, HeroIcons from TailwindUI, and Netlify CLI <br>
 ![image](https://github.com/user-attachments/assets/f40d6f3b-c14f-476b-a49a-9d4561fcdf8c)
 
