@@ -48,10 +48,11 @@ export default function ContactPage() {
         e.preventDefault();
         
         if (validateForm()) {
+            console.log("Submitted form data:", formData);
             setSubmitted(true);
         }
     };
-
+    
     return (
         <div className="max-w-3xl mx-auto p-6 bg-sky-300 border border-sky-500 shadow-lg rounded-lg mt-10">
             <Helmet>
