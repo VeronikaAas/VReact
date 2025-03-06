@@ -29,10 +29,9 @@ const Single = () => {
                 <title>{product.data.title}</title>
             </Helmet>
             <div className="bg-white shadow-lg rounded-lg p-4 sm:p-6 w-full">
-                {/* Responsive grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-center">
                     
-                    {/* Product image - scales for small screens */}
+                    {/* Product image */}
                     <div className="flex justify-center">
                         <img
                             src={product.data.image?.url}
@@ -41,7 +40,7 @@ const Single = () => {
                         />
                     </div>
 
-                    {/* Product information - consistent layout */}
+                    {/* Product information  */}
                     <div className="flex flex-col justify-between items-center md:items-start text-center md:text-left w-full h-full">
                         <h1 className="text-xl sm:text-2xl font-bold text-gray-900">{product.data.title}</h1>
                         <p className="text-gray-600 mt-2 text-sm sm:text-base">{product.data.description}</p>
@@ -58,7 +57,7 @@ const Single = () => {
                             </p>
                         )}
 
-                        {/* Price section with fixed height and vertical alignment */}
+                        {/* Price section  */}
                         <div className="mt-4 sm:mt-6 min-h-[70px] flex flex-col items-center justify-center">
                             {product.data.discountedPrice && product.data.discountedPrice < product.data.price ? (
                                 <>
@@ -79,7 +78,7 @@ const Single = () => {
                             )}
                         </div>
                         
-                        {/* Buttons - Consistent size throughout */}
+                        {/* Buttons*/}
                         <div className="mt-4 sm:mt-6 flex flex-col gap-3 w-full">
                             <button aria-label="Add to cart"
                                 onClick={() => addToCart(product.data)}

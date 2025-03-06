@@ -43,7 +43,6 @@ export default function ContactPage() {
             [e.target.name]: e.target.value,
         });
     
-        // Live validering mens brukeren skriver
         setErrors((prevErrors) => {
             const newErrors = { ...prevErrors };
             if (e.target.name === "fullName" && e.target.value.trim().length >= 3) {
