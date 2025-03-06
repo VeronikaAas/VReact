@@ -7,7 +7,7 @@ import { useCart } from "../../components/cart/Cartcontext";
 const Single = () => {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
-    const { addToCart } = useCart(); // Henter addToCart fra konteksten
+    const { addToCart } = useCart(); 
 
     useEffect(() => {
         if (id) {
@@ -66,14 +66,12 @@ const Single = () => {
                         
                         {/* Buttons */}
                         <div className="mt-6 flex flex-col gap-4">
-                            {/* Add to Cart button */}
                             <button
                                 onClick={() => addToCart(product.data)}
                                 className="bg-emerald-500 text-white px-6 py-3 rounded-lg hover:bg-emerald-800 w-full font-bold">
                                 Add to Cart 
                             </button>
 
-                            {/* Back to homepage button */}
                             <Link to="/" className="w-full text-center">
                                 <button className="bg-yellow-500 text-white px-6 py-3 rounded-lg hover:bg-yellow-800 w-full font-bold">
                                     Back to homepage
