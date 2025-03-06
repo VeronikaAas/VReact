@@ -61,7 +61,7 @@ const SearchBar = ({ products }) => {
         <div className="flex justify-center items-start mt-10 relative" ref={searchRef}>
             <div className="relative w-4/5 lg:w-1/2 flex">  
                 {/* Search input */}
-                <input
+                <input id="searchInput"
                     type="text"
                     placeholder="Search for products..."
                     value={query}
@@ -71,10 +71,10 @@ const SearchBar = ({ products }) => {
                 />
 
                 {/* Search button */}
-                <button
+                <button id="searchButton" title="Search"
+                    aria-label="Search"
                     onClick={performSearch}
-                    className="bg-sky-600 text-white px-4 py-3 rounded-r-md hover:bg-sky-900"
-                >
+                    className="bg-sky-600 text-white px-4 py-3 rounded-r-md hover:bg-sky-900">
                     <SearchIcon className="w-8 h-8 font-bold" />
                 </button>
 
