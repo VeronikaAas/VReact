@@ -14,7 +14,10 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
-  const { cart } = useCart(); 
+  const { cart } = useCart();
+
+  // Calculate the total number of items in the cart
+  const totalItemsInCart = cart.reduce((total, item) => total + item.quantity, 0);
 
   return (
     <Disclosure as="nav" className="bg-sky-300">
@@ -73,9 +76,9 @@ export default function Navbar() {
                   <ShoppingCartIcon className="size-8" aria-hidden="true" />
 
                   {/* 🛒 Badge for number of items in cart */}
-                  {cart.length > 0 && (
+                  {totalItemsInCart > 0 && (
                     <span className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
-                      {cart.length}
+                      {totalItemsInCart}
                     </span>
                   )}
                 </Link>
