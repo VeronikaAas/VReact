@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { StarIcon, TagIcon } from "@heroicons/react/solid";
+import { useCart } from "../../components/cart/Cartcontext";
 
 const Single = () => {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
+    const { addToCart } = useCart(); // Henter addToCart fra konteksten
 
     useEffect(() => {
         if (id) {
@@ -61,12 +63,22 @@ const Single = () => {
                                 <p className="text-gray-900 text-2xl font-bold">{product.data.price} kr</p>
                             )}
                         </div>
-                        <div className="mt-6">
-                        <Link to="/" className="w-1/2 text-center">
-                        <button className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-800 w-full cursor-pointer">
-                            Back to homepage
-                        </button>
-                        </Link>
+                        
+                        {/* Buttons */}
+                        <div className="mt-6 flex flex-col gap-4">
+                            {/* Add to Cart button */}
+                            <button
+                                onClick={() => addToCart(product.data)}
+                                className="bg-emerald-500 text-white px-6 py-3 rounded-lg hover:bg-emerald-800 w-full font-bold">
+                                Add to Cart 
+                            </button>
+
+                            {/* Back to homepage button */}
+                            <Link to="/" className="w-full text-center">
+                                <button className="bg-yellow-500 text-white px-6 py-3 rounded-lg hover:bg-yellow-800 w-full font-bold">
+                                    Back to homepage
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
