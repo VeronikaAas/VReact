@@ -42,7 +42,27 @@ export default function ContactPage() {
             ...formData,
             [e.target.name]: e.target.value,
         });
+    
+        // Live validering mens brukeren skriver
+        setErrors((prevErrors) => {
+            const newErrors = { ...prevErrors };
+            if (e.target.name === "fullName" && e.target.value.trim().length >= 3) {
+                delete newErrors.fullName;
+            }
+            if (e.target.name === "subject" && e.target.value.trim().length >= 3) {
+                delete newErrors.subject;
+            }
+            if (e.target.name === "email" && e.target.value.trim().length >= 3 && /^[\w\-\.]+@([\w-]+\.)+[\w-]{2,}$/.test(e.target.value)) {
+                delete newErrors.email;
+            }
+            if (e.target.name === "body" && e.target.value.trim().length >= 3) {
+                delete newErrors.body;
+            }
+            return newErrors;
+        });
     };
+    
+    
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -128,7 +148,7 @@ export default function ContactPage() {
                         </div>
 
                         {/* Submit Button */}
-                        <button
+                        <button aria-label="Submit form"
                             type="submit"
                             className="w-full bg-yellow-500 text-white py-2 rounded hover:bg-yellow-600 disabled:bg-gray-400 cursor-pointer"
                             disabled={Object.keys(errors).length > 0}>
