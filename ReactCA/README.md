@@ -1,12 +1,27 @@
-# React + Vite
+# Simple E-Store Built with React and Vite
+![image](https://github.com/user-attachments/assets/5771334e-c278-409e-952b-c821db263b50)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## This simple E-store project was built as a learning experience to explore the React framework. I chose to set up my project using Vite and React, as these are widely used in the industry today. This project includes:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Creating an app using Vite and React
+* Contains components such as Navbar, Footer, Shopping Cart, and Search Bar
+* Uses React Router for navigation
+* Clickable products that display more detailed information
+* Interactive shopping cart
+* Interactive search bar (search based on product title)
+* The shopping cart displays the total price, which updates dynamically when products are added or removed
+* Checkout redirects to a success page upon interaction with the checkout button
+* Functional contact form (confirmation message can be seen in the console)
+* Includes the following pages: Homepage, Single Product Page, Checkout, Checkout Success, and Contact Page
+* The project is manually deployed from VS Code to Netlify
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# How to Install and Work on This Project
+Feel free to clone and rename this project for your own purposes.
+
+1) Clone this repository
+2) Open it in VS Code
+3) Install the following dependencies: Vite, React, React Router, Helmet, Tailwind, HeroIcons from TailwindUI, and Netlify CLI <br>
+![image](https://github.com/user-attachments/assets/f40d6f3b-c14f-476b-a49a-9d4561fcdf8c)
+
