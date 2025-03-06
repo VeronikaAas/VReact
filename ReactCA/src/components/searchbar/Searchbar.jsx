@@ -1,5 +1,4 @@
-// filepath: /src/components/searchbar/Searchbar.jsx
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { SearchIcon } from "@heroicons/react/outline";
 
@@ -7,6 +6,7 @@ const SearchBar = ({ products }) => {
     const [query, setQuery] = useState("");
     const [filteredProducts, setFilteredProducts] = useState([]);
     const navigate = useNavigate();
+    const searchRef = useRef(null);
 
     useEffect(() => {
         if (!Array.isArray(products)) {
@@ -30,6 +30,7 @@ const SearchBar = ({ products }) => {
         if (filteredProducts.length > 0) {
             navigate(`/product/${filteredProducts[0].id}`);
             setQuery("");
+            setFilteredProducts([]);
         } else {
             console.warn("No products found matching your search:", query);
         }
@@ -41,9 +42,24 @@ const SearchBar = ({ products }) => {
         }
     };
 
+    // Lukk søket når du klikker utenfor
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (searchRef.current && !searchRef.current.contains(event.target)) {
+                setQuery("");
+                setFilteredProducts([]);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
     return (
-        <div className="flex justify-center items-start mt-10"> 
-            <div className="relative w-1/2 flex">  
+        <div className="flex justify-center items-start mt-10 relative" ref={searchRef}>
+            <div className="relative w-4/5 lg:w-1/2 flex">  
                 {/* Search input */}
                 <input
                     type="text"
@@ -64,7 +80,7 @@ const SearchBar = ({ products }) => {
 
                 {/* List with results */}
                 {filteredProducts.length > 0 && (
-                    <ul className="absolute left-0 bg-white border border-gray-300 rounded-md mt-1 w-full shadow-lg z-50 text-black">
+                    <ul className="absolute left-0 top-full mt-1 bg-white border border-gray-300 rounded-md w-full shadow-lg z-50 text-black">
                         {filteredProducts.map((product) => (
                             <li key={product.id} className="hover:bg-sky-300 cursor-pointer">
                                 <Link 
