@@ -33,14 +33,14 @@ const Product = ({ product }) => {
                     ) : (
                         <>
                             <span className="font-bold text-lg">{product.price} kr</span>
-                            <span className="invisible text-2xl">Placeholder</span> {/* Placeholder for equal height */}
+                            <span className="invisible text-2xl">Placeholder</span> 
                         </>
                     )}
                 </div>
 
                 {/* Buttons */}
                 <div className="flex justify-between w-full mt-4 gap-x-2">
-                    <Link to={`/product/${product.id}`} className="w-1/2 text-center">
+                    <Link to={`/product/${product.id}`} className="flex-1 text-center">
                         <button aria-label="View product"
                          className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-800 w-full cursor-pointer">
                             View product
@@ -49,7 +49,7 @@ const Product = ({ product }) => {
 
                     <button aria-label="Add to cart"
                         onClick={() => addToCart(product)}
-                        className="bg-emerald-500 text-white px-4 py-2 rounded hover:bg-emerald-800 w-1/2 cursor-pointer">
+                        className="bg-emerald-500 text-white px-4 py-2 rounded hover:bg-emerald-800 flex-1 cursor-pointer">
                         Add to Cart
                     </button>
                 </div>
