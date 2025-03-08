@@ -24,16 +24,19 @@ const Product = ({ product }) => {
                 </Link>
 
                 {/* Price/discount */}
-                <p className="text-center mt-2">
+                <div className="text-center mt-2 flex flex-col items-center">
                     {hasDiscount ? (
                         <>
-                            <span className="text-gray-500 line-through text-lg mr-2">{product.price} kr</span>
+                            <span className="text-gray-500 line-through text-lg">{product.price} kr</span>
                             <span className="text-red-600 font-extrabold text-2xl">{product.discountedPrice} kr</span>
                         </>
                     ) : (
-                        <span className="font-bold text-lg">{product.price} kr</span>
+                        <>
+                            <span className="font-bold text-lg">{product.price} kr</span>
+                            <span className="invisible text-2xl">Placeholder</span> {/* Placeholder for equal height */}
+                        </>
                     )}
-                </p>
+                </div>
 
                 {/* Buttons */}
                 <div className="flex justify-between w-full mt-4 gap-x-2">
