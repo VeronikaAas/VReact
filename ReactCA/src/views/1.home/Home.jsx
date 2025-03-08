@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { useCart } from "../../components/cart/Cartcontext";
 import Product from "../../components/product/FetchProduct";
 import SearchBar from "../../components/searchbar/Searchbar";
+import "../1.home/custom.css"
 
 const Home = () => {
     const { addToCart } = useCart();
@@ -34,7 +35,7 @@ const Home = () => {
             </Helmet>
             <SearchBar products={products} />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6 flex-grow">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6 flex-grow custom-grid">
                 {products.map((product) => (
                     <Product key={product.id} product={product} addToCart={addToCart} />
                 ))}
