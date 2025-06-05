@@ -11,27 +11,27 @@ import { CartProvider } from './components/cart/Cartcontext';
 import { HelmetProvider } from 'react-helmet-async';
 
 const App = () => {
-  return (
-    <div className="flex flex-col min-h-screen">
-      <CartProvider>
-        <HelmetProvider>
-          <Router>
-            <Navbar />
-            <main className="flex-grow">
-              <Routes>
-                <Route exact path="/" element={<Home />} />
-                <Route path="/product/:id" element={<Single />} />
-                <Route path="/success" element={<Success />} />
-                <Route path="/checkout" element={<Checkout />} />
-                <Route path="/contact" element={<Contact />} />
-              </Routes>
-            </main>
-            <Footer />
-          </Router>
-        </HelmetProvider>
-      </CartProvider>
-    </div>
-  );
+	return (
+		<div className="flex flex-col min-h-screen">
+			<CartProvider>
+				<HelmetProvider>
+					<Router>
+						<Navbar />
+						<main className="flex-grow">
+							<Routes>
+								<Route exact path="/" element={<Home />} />
+								<Route path="/product/:id" element={<Single />} />
+								<Route path="/success" element={<Success />} />
+								<Route path="/checkout" element={<Checkout />} />
+								<Route path="/contact" element={<Contact />} />
+							</Routes>
+						</main>
+						<Footer />
+					</Router>
+				</HelmetProvider>
+			</CartProvider>
+		</div>
+	);
 };
 
 export default App;
