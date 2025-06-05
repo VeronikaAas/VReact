@@ -4,6 +4,23 @@ import { Helmet } from 'react-helmet-async';
 import { StarIcon, TagIcon } from '@heroicons/react/solid';
 import { useCart } from '../../components/cart/Cartcontext';
 
+/**
+ * Single component displays a detailed view of a single product.
+ *
+ * It fetches the product based on the route `id` param, shows loading and error states,
+ * displays product info (image, title, description, rating, tags, and price),
+ * and includes buttons to add to cart or return to the homepage.
+ *
+ * SEO title is dynamically set using Helmet.
+ *
+ * @component
+ * @returns {JSX.Element}
+ *
+ * @example
+ * // When route is /product/123
+ * <Route path="/product/:id" element={<Single />} />
+ */
+
 const Single = () => {
 	const { id } = useParams();
 	const [product, setProduct] = useState(null);

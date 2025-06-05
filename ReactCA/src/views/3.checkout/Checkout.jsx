@@ -2,6 +2,21 @@ import { useCart } from '../../components/cart/Cartcontext';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
+/**
+ * CheckoutPage displays the user's shopping cart and handles the checkout process.
+ *
+ * It groups duplicate products by ID, allows users to adjust quantity, and calculates
+ * the total price with discounts applied when applicable.
+ *
+ * Upon confirming checkout, the cart is cleared and the user is redirected to a success page.
+ *
+ * @component
+ * @returns {JSX.Element}
+ *
+ * @example
+ * <Route path="/checkout" element={<CheckoutPage />} />
+ */
+
 const CheckoutPage = () => {
 	const { cart, setCart, addToCart, removeFromCart, deleteFromCart } = useCart();
 	const navigate = useNavigate();

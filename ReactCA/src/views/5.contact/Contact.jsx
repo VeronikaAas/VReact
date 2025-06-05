@@ -3,6 +3,21 @@ import { CheckCircleIcon } from '@heroicons/react/outline';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
+/**
+ * ContactPage displays a contact form with validation and submission feedback.
+ *
+ * Validates input fields for minimum length and email format. On successful submission,
+ * it displays a thank-you message. SEO title is handled with Helmet.
+ *
+ * No real API call is made — the form logs the result to console and simulates success.
+ *
+ * @component
+ * @returns {JSX.Element}
+ *
+ * @example
+ * <Route path="/contact" element={<ContactPage />} />
+ */
+
 export default function ContactPage() {
 	const [formData, setFormData] = useState({
 		fullName: '',

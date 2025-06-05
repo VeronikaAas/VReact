@@ -5,6 +5,22 @@ import Product from '../../components/product/FetchProduct';
 import SearchBar from '../../components/searchbar/Searchbar';
 import '../1.home/custom.css';
 
+/**
+ * Home component represents the main shop page.
+ *
+ * It fetches a list of products from the Noroff API, displays them in a grid,
+ * and integrates a search bar and product cards. Users can also add products
+ * to the cart via cart context.
+ *
+ * Uses `Helmet` to set the page title dynamically.
+ *
+ * @component
+ * @returns {JSX.Element}
+ *
+ * @example
+ * return <Home />
+ */
+
 const Home = () => {
 	const { addToCart } = useCart();
 	const [products, setProducts] = useState([]);

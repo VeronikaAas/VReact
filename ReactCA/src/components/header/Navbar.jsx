@@ -9,6 +9,18 @@ const navigation = [
 	{ name: 'Contact', href: '/contact' },
 ];
 
+/**
+ * Navbar component provides responsive site-wide navigation with cart status.
+ *
+ * Uses Headless UI's Disclosure for mobile navigation and displays the total quantity
+ * of items in the shopping cart from context. Includes a centered logo, dynamic
+ * cart badge, and navigation links.
+ *
+ * @component
+ * @example
+ * return <Navbar />
+ */
+
 export default function Navbar() {
 	const { cart } = useCart();
 	const totalItemsInCart = cart.reduce((total, item) => total + item.quantity, 0);

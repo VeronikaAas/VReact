@@ -1,5 +1,16 @@
 import { Link } from 'react-router-dom';
 
+/**
+ * Footer component displays contact information and quick navigation links.
+ *
+ * Designed as a simple site-wide footer using Tailwind CSS styling.
+ * Links use React Router's <Link> for client-side navigation.
+ *
+ * @component
+ * @example
+ * return <Footer />
+ */
+
 export default function Footer() {
 	return (
 		<footer className="bg-sky-300 text-black py-6 mt-10">

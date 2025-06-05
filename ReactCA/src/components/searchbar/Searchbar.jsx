@@ -2,6 +2,25 @@ import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { SearchIcon } from '@heroicons/react/outline';
 
+/**
+ * SearchBar component allows users to search through a list of products.
+ *
+ * Filters products based on the search query and shows live suggestions.
+ * Users can press "Enter" or click the button to navigate to the first match,
+ * or click a suggestion. Clicking outside the search field closes the suggestions.
+ *
+ * @component
+ * @param {{ products: Array<{ id: number, title: string }> }} props - Array of product objects
+ * @returns {JSX.Element}
+ *
+ * @example
+ * const products = [
+ *   { id: 1, title: 'Red Hoodie' },
+ *   { id: 2, title: 'Blue Jeans' },
+ * ];
+ * return <SearchBar products={products} />
+ */
+
 const SearchBar = ({ products }) => {
 	const [query, setQuery] = useState('');
 	const [filteredProducts, setFilteredProducts] = useState([]);

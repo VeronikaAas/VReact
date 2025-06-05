@@ -1,6 +1,22 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 
+/**
+ * Context for managing the shopping cart state.
+ * Must be used within a {@link CartProvider}.
+ */
+
 const CartContext = createContext();
+
+/**
+ * CartProvider wraps your application and provides shopping cart functionality.
+ *
+ * It manages cart state, persists it to localStorage, and exposes utility functions
+ * to add, remove, or delete items from the cart.
+ *
+ * @component
+ * @param {{ children: React.ReactNode }} props - Children components that need cart access
+ * @returns {JSX.Element}
+ */
 
 export const CartProvider = ({ children }) => {
 	const [cart, setCart] = useState([]);

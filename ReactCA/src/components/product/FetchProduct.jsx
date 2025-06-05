@@ -1,6 +1,34 @@
 import { Link } from 'react-router-dom';
 import { useCart } from '../cart/Cartcontext';
 
+/**
+ * Product component displays a single product card with image, title,
+ * price (including optional discount), and buttons to view or add the product to cart.
+ *
+ * Uses `useCart()` context to add products directly to the shopping cart.
+ * Handles missing data gracefully and uses a placeholder image if none is provided.
+ *
+ * @component
+ * @param {{ product: {
+ *   id: number,
+ *   title: string,
+ *   price: number,
+ *   discountedPrice?: number,
+ *   image?: { url?: string, alt?: string }
+ * }}} props - The product object to render
+ * @returns {JSX.Element|null}
+ *
+ * @example
+ * const product = {
+ *   id: 1,
+ *   title: "Pink Unicorn T-Shirt",
+ *   price: 299,
+ *   discountedPrice: 199,
+ *   image: { url: "/images/unicorn.jpg", alt: "Unicorn T-shirt" }
+ * };
+ * return <Product product={product} />
+ */
+
 const Product = ({ product }) => {
 	const { addToCart } = useCart();
 
